@@ -1,0 +1,22 @@
+<ion-content padding>
+    <ion-grid>
+        <ion-row justify-content-center align-items-center>
+            <img src="assets/imgs/argontech-logo.png" class="slide-image" />
+        </ion-row>
+    </ion-grid>
+
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Usuario</ion-label>
+            <ion-input type="email" [(ngModel)]="user"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button block [disabled]="user.length < 3 || password.length < 3" (click)="logIn()">
+      Ingresar
+    </button>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar color="danger">
+            <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="openPage(homePage)">
+        OS Pendientes
+      </button>
+            <button ion-item (click)="openPage(friendsPage)">
+        OS Cerradas
+      </button>
+            <button ion-item (click)="openPage(eventsPage)">
+        Equipo
+      </button>
+            <button ion-item (click)="logOut()">
+       Logout
+      </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>
