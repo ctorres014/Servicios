@@ -14,8 +14,8 @@ import { HomePage, LoginPage,
         FilterOSPendingPage,
         FilterOSClosePage,
         EquipmentPage,
-        OrderServicePage,
-        FilterOrderServicePage } from '../pages/index';
+        FilterEquipmentPage,
+        OrderServicePage } from '../pages/index';
 // Provider
 import { UserProvider } from '../providers/user/user.provider';
 import { OrderServiceProvider } from '../providers/order-service/order-service.provider';
@@ -36,7 +36,7 @@ import { AuthProvider } from '../auth/auth-provider/auth.provider';
     FilterOSClosePage,
     EquipmentPage,
     OrderServicePage,
-    FilterOrderServicePage
+    FilterEquipmentPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +56,7 @@ import { AuthProvider } from '../auth/auth-provider/auth.provider';
     FilterOSClosePage,
     EquipmentPage,
     OrderServicePage,
-    FilterOrderServicePage
+    FilterEquipmentPage
   ],
   providers: [
     StatusBar,

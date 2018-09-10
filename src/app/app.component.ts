@@ -7,7 +7,8 @@ import { AlertController } from 'ionic-angular';
 import { LoginPage,
          ListPendingServiceOrderPage,
          ListCloseServiceOrderPage,
-         FilterOrderServicePage } from '../pages/index';
+         FilterEquipmentPage,
+         OrderServicePage } from '../pages/index';
 //Service
 import { UserProvider } from '../providers/user/user.provider';
 
@@ -19,7 +20,9 @@ export class MyApp {
   login = LoginPage;
   listOSPending = ListPendingServiceOrderPage;
   listOSClose = ListCloseServiceOrderPage;
-  equipment = FilterOrderServicePage;
+  equipment = FilterEquipmentPage;
+  // Eliminar esta linea--- solo para prueba
+  orderService = OrderServicePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               private menuCtrl: MenuController, private _userProvider: UserProvider,

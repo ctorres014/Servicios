@@ -1,23 +1,147 @@
- -->
 <ion-header>
-
-    <ion-navbar>
-        <ion-title>GESOS - Orden de Servicio {{ orderService }}</ion-title>
+    <ion-navbar color="danger">
+        <ion-title>GESOS - OS {{ orderService }}</ion-title>
         <ion-buttons>
             <button ion-button icon-only menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-        </ion-buttons>
-        <ion-buttons right>
-            <button ion-button icon-only (click)="showFilter()">
-          Filtrar
-        </button>
+                <ion-icon name="menu"></ion-icon>
+            </button>
         </ion-buttons>
     </ion-navbar>
-
+    <ion-toolbar>
+        <ion-segment>
+            <ion-segment-button [navPush]="filterEquipment">
+                Equipo
+            </ion-segment-button>
+            <ion-segment-button>
+                Historico OS
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
 </ion-header>
-
 
 <ion-content padding>
 
+    <div [ngSwitch]="segment">
+        <ion-list *ngSwitchCase="segmentOrderService">
+            <ion-item-divider color="light">
+                Datos importantes
+            </ion-item-divider>
+            <ion-item>
+                Prioridad
+                <ion-avatar item-end>
+                    <img src="../../../assets/icon/box-green.png">
+                </ion-avatar>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Estado</ion-label>
+                <ion-label text-right>Pendiente</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Creado por</ion-label>
+                <ion-label text-right>Filomena Suarez</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Tecnico</ion-label>
+                <ion-label text-right>Raul Fernandez</ion-label>
+            </ion-item>
+            <ion-item-divider color="light">
+                Datos del cliente
+            </ion-item-divider>
+            <ion-item>
+                <ion-label text-left>Cliente</ion-label>
+                <ion-label text-right>AFA</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Contacto</ion-label>
+                <ion-label text-right>Humberto Grondona</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Equipo</ion-label>
+                <ion-label text-right>Multi. HP 520</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Modelo</ion-label>
+                <ion-label text-right>LJ1102</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Ult. Contador</ion-label>
+                <ion-label text-right>123456789</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Fecha toma</ion-label>
+                <ion-label text-right>15/07/2018</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-textarea disabled="true" [(ngModel)]="inconvenientes"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-textarea disabled="true" [(ngModel)]="trabajosPendientes"></ion-textarea>
+            </ion-item>
+        </ion-list>
+        <!-- Trabajos realizados -->
+        <ion-list *ngSwitchCase="segmentWorked">
+            <ion-item-divider color="light">
+                Llegada
+            </ion-item-divider>
+            <ion-item>
+                <ion-label>Fecha</ion-label>
+                <ion-datetime displayFormat="MM/DD/YYYY HH:mm" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
+            </ion-item>
+            <ion-item-divider color="light">
+                Realizacion
+            </ion-item-divider>
+            <ion-item>
+                <ion-label>Fecha</ion-label>
+                <ion-datetime displayFormat="MM/DD/YYYY HH:mm" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Contador</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label text-left>Duracion viaje</ion-label>
+                <ion-label text-right>--</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Copias Prueba</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Toner</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item-divider color="light">
+                Contacto
+            </ion-item-divider>
+            <ion-item>
+                <ion-label floating>Nombre</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>eMail</ion-label>
+                <ion-input type="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-textarea [(ngModel)]="inconvenientes"></ion-textarea>
+            </ion-item>
+            <ion-item>
+                <ion-textarea [(ngModel)]="trabajosPendientes"></ion-textarea>
+            </ion-item>
+            <br>
+            <button ion-button block (click)="closeOS()">
+                Cerrar OS
+            </button>
+        </ion-list>
+    </div>
+
 </ion-content>
+<ion-footer>
+    <ion-segment [(ngModel)]="segment">
+        <ion-segment-button value="OSDetails">
+            Detalle OS
+        </ion-segment-button>
+        <ion-segment-button value="worked">
+            Trabajos Realizados
+        </ion-segment-button>
+    </ion-segment>
+</ion-footer>

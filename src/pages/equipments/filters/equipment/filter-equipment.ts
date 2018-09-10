@@ -4,13 +4,13 @@ import { FormControl } from '@angular/forms';
 // Provider
 import { EquipmentProvider } from '../../../../providers/equipment/equipment.provider';
 // Page
-import { EquipmentPage } from '../../../equipment/equipment';
+import { EquipmentPage } from '../../equipment/equipment';
 
 @Component({
-  selector: 'filter-order-service',
-  templateUrl: 'filter-order-service.html',
+  selector: 'filter-equipment',
+  templateUrl: 'filter-equipment.html',
 })
-export class FilterOrderServicePage {
+export class FilterEquipmentPage {
   searchClient: string = '';
   searchModel: string = '';
   clientSelected: string;

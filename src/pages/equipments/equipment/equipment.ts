@@ -3,10 +3,9 @@ import { FormControl } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/debounceTime';
 // Provider
-import { EquipmentProvider } from '../../providers/equipment/equipment.provider';
+import { EquipmentProvider } from '../../../providers/equipment/equipment.provider';
 // Page
-import { FilterOrderServicePage } from './../orders-service/filters/order-service/filter-order-service';
-
+import { FilterEquipmentPage } from './../filters/equipment/filter-equipment';
 
 @Component({
   selector: 'page-equipment',
@@ -25,7 +24,7 @@ export class EquipmentPage {
   }
 
   ionViewDidLoad() {
-    // this.setFilteredItems();
+    this.setFilteredItems();
     // this.searchControl.valueChanges.debounceTime(100).subscribe(search => {
     //     this.searching = false;
     //     this.setFilteredItems();
@@ -39,7 +38,7 @@ export class EquipmentPage {
 
   setFilteredItems() {
     // this.searching = true;
-    // this.items = this._equipmentProvider.filterItems(this.searchTerm);
+    this.items = this._equipmentProvider.filterClients(this.searchTerm);
   }
 
   onCancel(event: any) {
@@ -47,7 +46,7 @@ export class EquipmentPage {
   }
 
   showFilter() {
-    this.navCtrl.push(FilterOrderServicePage);
+    this.navCtrl.push(FilterEquipmentPage);
   }
 
 }
