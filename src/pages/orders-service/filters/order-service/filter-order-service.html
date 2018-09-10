@@ -1,0 +1,46 @@
+<ion-header>
+
+    <ion-navbar color="danger">
+        <ion-title>GESOS - Filtrar Equipos</ion-title>
+        <ion-buttons>
+            <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Cliente</ion-label>
+            <ion-input type="text" [(ngModel)]="searchClient" (ionChange)="setFilteredClient()"></ion-input>
+        </ion-item>
+        <ion-spinner *ngIf="searching"></ion-spinner>
+        <ion-item *ngFor="let item of itemsClient" (click)="selectedClient(item.cliente)">
+            {{ item.cliente }}
+        </ion-item>
+        <ion-item *ngIf="clientSelected" text-center>
+            <ion-badge color="stable">{{ clientSelected }}</ion-badge>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Modelo</ion-label>
+            <ion-input type="text" [(ngModel)]="searchModel" (ionChange)="setFilteredModel()"></ion-input>
+        </ion-item>
+        <ion-item *ngFor="let item of itemsModel" (click)="selectedModel(item.nombreModelo)">
+            {{ item.nombreModelo }}
+        </ion-item>
+        <ion-item *ngIf="modelSelected" text-center>
+            <ion-badge color="stable">{{ modelSelected }}</ion-badge>
+        </ion-item>
+    </ion-list>
+
+    <button ion-button block (click)="applyFilter()">
+      Filtrar
+    </button>
+</ion-content>

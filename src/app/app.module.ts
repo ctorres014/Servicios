@@ -10,12 +10,20 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage, LoginPage,
         ListPendingServiceOrderPage,
-        ListCloseServiceOrderPage } from '../pages/index';
+        ListCloseServiceOrderPage,
+        FilterOSPendingPage,
+        FilterOSClosePage,
+        EquipmentPage,
+        OrderServicePage,
+        FilterOrderServicePage } from '../pages/index';
 // Provider
 import { UserProvider } from '../providers/user/user.provider';
 import { OrderServiceProvider } from '../providers/order-service/order-service.provider';
+import { EquipmentProvider } from '../providers/equipment/equipment.provider';
 // Interceptor
-import { AuthInterceptor } from '../interceptor/auth.interceptor';
+import { AuthInterceptor } from '../auth/interceptor/auth.interceptor';
+import { AuthProvider } from '../auth/auth-provider/auth.provider';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +31,12 @@ import { AuthInterceptor } from '../interceptor/auth.interceptor';
     HomePage,
     LoginPage,
     ListPendingServiceOrderPage,
-    ListCloseServiceOrderPage
+    ListCloseServiceOrderPage,
+    FilterOSPendingPage,
+    FilterOSClosePage,
+    EquipmentPage,
+    OrderServicePage,
+    FilterOrderServicePage
   ],
   imports: [
     BrowserModule,
@@ -31,13 +44,19 @@ import { AuthInterceptor } from '../interceptor/auth.interceptor';
     IonicStorageModule.forRoot(),
     HttpClientModule
   ],
+  exports: [],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     LoginPage,
     ListPendingServiceOrderPage,
-    ListCloseServiceOrderPage
+    ListCloseServiceOrderPage,
+    FilterOSPendingPage,
+    FilterOSClosePage,
+    EquipmentPage,
+    OrderServicePage,
+    FilterOrderServicePage
   ],
   providers: [
     StatusBar,
@@ -45,7 +64,11 @@ import { AuthInterceptor } from '../interceptor/auth.interceptor';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
     UserProvider,
-    OrderServiceProvider
+    OrderServiceProvider,
+    EquipmentProvider,
+
+    // AuthProvider
+
   ]
 })
 export class AppModule {}

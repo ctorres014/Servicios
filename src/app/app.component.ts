@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-import { Platform, MenuController, App } from 'ionic-angular';
+import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AlertController } from 'ionic-angular';
 //Page
 import { LoginPage,
-         ListPendingServiceOrderPage} from '../pages/index';
+         ListPendingServiceOrderPage,
+         ListCloseServiceOrderPage,
+         FilterOrderServicePage } from '../pages/index';
 //Service
 import { UserProvider } from '../providers/user/user.provider';
 
@@ -13,16 +16,20 @@ import { UserProvider } from '../providers/user/user.provider';
 })
 export class MyApp {
   rootPage:any;
+  login = LoginPage;
+  listOSPending = ListPendingServiceOrderPage;
+  listOSClose = ListCloseServiceOrderPage;
+  equipment = FilterOrderServicePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
               private menuCtrl: MenuController, private _userProvider: UserProvider,
-              public app: App) {
+              public alertCtrl: AlertController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this._userProvider.getStorage();
       if(!this._userProvider.token) {
-        this.rootPage = LoginPage;
+        this.rootPage = this.login;
         this.menuCtrl.enable(false);
       }else {
         this.rootPage = ListPendingServiceOrderPage;
@@ -33,11 +40,29 @@ export class MyApp {
     });
   }
 
-  logOut() {
-    debugger;
-    this._userProvider.logOut();
-    this.rootPage = LoginPage;
-    this.menuCtrl.enable(false);
+  logOut(page: any) {
+    const confirm = this.alertCtrl.create({
+      title: '¿Desea salir de GESOS?',
+      buttons: [
+        {
+          text: 'No'
+        },
+        {
+          text: 'Si',
+          handler: () => {
+            this._userProvider.logOut();
+            this.rootPage = this.login;
+            this.menuCtrl.enable(false);
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  openPage(page: any) {
+    this.rootPage = page;
+    this.menuCtrl.close();
   }
 
 }

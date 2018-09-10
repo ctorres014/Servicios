@@ -1,0 +1,55 @@
+<ion-header>
+
+    <ion-navbar color="danger">
+        <ion-title>Datos del Equipo</ion-title>
+        <ion-buttons>
+            <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        </ion-buttons>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="showFilter()">
+          Filtrar
+        </button>
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <!-- Sliding item -->
+        <ion-item-sliding *ngFor="let item of items" #slidingItem>
+            <ion-item>
+                <h2 ion-text> <strong>Id Producto: {{ item.idArticuloBarra }} </strong></h2>
+                <p ion-text> Modelo: {{ item.nombreModelo }} </p>
+                <p ion-text> Cliente: {{ item.cliente }} </p>
+            </ion-item>
+            <ion-item-options side="left">
+                <button ion-button expandable color="primary">
+                    <ion-icon name="eye"></ion-icon>
+                    Detalle
+                </button>
+            </ion-item-options>
+            <ion-item-options side="right">
+                <button ion-button expandable color="light">
+                    <ion-icon name="stopwatch"></ion-icon>
+                    Histórico
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+    <div *ngIf="false" text-center>
+        <ion-spinner></ion-spinner>
+    </div>
+    <ion-toolbar>
+        <ion-searchbar autocomplete="on" [formControl]="searchControl" [(ngModel)]="searchTerm" cancelButtonText="Cancelar" animated="true" spellcheck="true" showCancelButton="false" placeholder="Id de equipo" [showCancelButton]="shouldShowCancel" (ionInput)="setFilteredItems($event)"
+            (ionCancel)="onCancel($event)">
+        </ion-searchbar>
+    </ion-toolbar>
+</ion-footer>

@@ -7,80 +7,118 @@
               <ion-icon name="menu"></ion-icon>
             </button>
         </ion-buttons>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="showFilter()">
+              Filtrar
+            </button>
+        </ion-buttons>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <!-- list category -->
-    <ion-list>
-        <ion-item>
-            <ion-label>Categoría</ion-label>
-            <ion-select interface="popover">
-                <ion-option value="nes">Servicio</ion-option>
-                <ion-option value="n64">Mantenimiento</ion-option>
-                <ion-option value="ps">Instalación</ion-option>
-                <ion-option value="genesis">Tarea Pendiente</ion-option>
-                <ion-option value="saturn">Sistemas</ion-option>
-                <ion-option value="snes">Soluciónes</ion-option>
-            </ion-select>
-        </ion-item>
-    </ion-list>
-    <!-- Fin list category -->
-    <!-- list priority -->
-    <ion-list>
-        <ion-item>
-            <ion-label>Prioridad</ion-label>
-            <ion-select>
-                <ion-option value="nes">Servicio</ion-option>
-                <ion-option value="n64">Mantenimiento</ion-option>
-                <ion-option value="ps">Instalación</ion-option>
-                <ion-option value="genesis">Tarea Pendiente</ion-option>
-                <ion-option value="saturn">Sistemas</ion-option>
-                <ion-option value="snes">Soluciónes</ion-option>
-            </ion-select>
-        </ion-item>
-    </ion-list>
-    <!-- Fin list priority -->
-    <!-- list tecnical -->
-    <ion-list>
-        <ion-item>
-            <ion-label>Técnico</ion-label>
-            <ion-select>
-                <ion-option value="nes">Servicio</ion-option>
-                <ion-option value="n64">Mantenimiento</ion-option>
-                <ion-option value="ps">Instalación</ion-option>
-                <ion-option value="genesis">Tarea Pendiente</ion-option>
-                <ion-option value="saturn">Sistemas</ion-option>
-                <ion-option value="snes">Soluciónes</ion-option>
-            </ion-select>
-        </ion-item>
-    </ion-list>
-    <!-- Fin list tecnical -->
-    <button ion-button block>
-        Filtrar
-    </button>
     <!-- INICIO GRILLA -->
     <ion-grid>
-        <ion-row class="row-backgroun">
-            <ion-col>
+        <ion-row class="col-background" style="border-bottom: groove;">
+            <ion-col class="col-background">
                 Pr
             </ion-col>
-            <ion-col>
+            <ion-col class="col-background">
                 Fecha
             </ion-col>
-            <ion-col>
+            <ion-col class="col-background">
                 Cliente
             </ion-col>
-            <ion-col>
+            <ion-col class="col-background">
                 Cat
             </ion-col>
-            <ion-col>
+            <ion-col class="col-background">
                 Modelo
             </ion-col>
-            <ion-col>
+            <ion-col class="col-background">
                 Tecnico
+            </ion-col>
+        </ion-row>
+        <!-- CONTENT -->
+        <ion-row style="border-bottom: groove;">
+            <ion-col class="col-background-content">
+                1
+            </ion-col>
+            <ion-col class="col-background-content">
+                15/08/2018
+            </ion-col>
+            <ion-col class="col-background-content">
+                Cliente 1
+            </ion-col>
+            <ion-col class="col-background-content">
+                SRV
+            </ion-col>
+            <ion-col class="col-background-content">
+                Printer G11
+            </ion-col>
+            <ion-col class="col-background-content">
+                Juarez Perez
+            </ion-col>
+        </ion-row>
+        <ion-row style="border-bottom: groove;">
+            <ion-col class="col-background-content">
+                2
+            </ion-col>
+            <ion-col class="col-background-content">
+                20/08/2018
+            </ion-col>
+            <ion-col class="col-background-content">
+                Cliente 2
+            </ion-col>
+            <ion-col class="col-background-content">
+                SRV
+            </ion-col>
+            <ion-col class="col-background-content">
+                Printer G11
+            </ion-col>
+            <ion-col class="col-background-content">
+                Mauricio Coba
+            </ion-col>
+        </ion-row>
+        <ion-row style="border-bottom: groove;">
+            <ion-col class="col-background-content">
+                5
+            </ion-col>
+            <ion-col class="col-background-content">
+                09/04/2018
+            </ion-col>
+            <ion-col class="col-background-content">
+                Cliente 9
+            </ion-col>
+            <ion-col class="col-background-content">
+                SRV
+            </ion-col>
+            <ion-col class="col-background-content">
+                Printer G11
+            </ion-col>
+            <ion-col class="col-background-content">
+                Juana Alegre
+            </ion-col>
+        </ion-row>
+        <ion-row style="border-bottom: groove;">
+            <ion-col class="col-background-content">
+                4
+            </ion-col>
+            <ion-col class="col-background-content">
+                01/04/2018
+            </ion-col>
+            <ion-col class="col-background-content">
+                Cliente 3
+            </ion-col>
+            <ion-col class="col-background-content">
+                SRV
+            </ion-col>
+            <ion-col class="col-background-content">
+                Printer G11
+            </ion-col>
+            <ion-col class="col-background-content">
+                Laura Martinez
             </ion-col>
         </ion-row>
     </ion-grid>

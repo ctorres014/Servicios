@@ -1,14 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
+// Modal-Page
+import { FilterOSClosePage } from '../filters/os-close/filter-os-close';
 
-/**
- * Generated class for the ListCloseServiceOrderPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-list-close-service-order',
   templateUrl: 'list-close-service-order.html',
@@ -18,8 +12,7 @@ export class ListCloseServiceOrderPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListCloseServiceOrderPage');
+  showFilter() {
+    this.navCtrl.push(FilterOSClosePage);
   }
-
 }

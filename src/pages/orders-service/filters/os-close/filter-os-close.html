@@ -1,0 +1,72 @@
+<ion-header>
+
+    <ion-navbar color="danger">
+        <ion-title>GESOS - Filtrar OS Pendientes</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label>Fecha Creacion</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" cancelText="Cancelar" doneText="Aceptar"></ion-datetime>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>Fecha Cierre</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>Cliente</ion-label>
+            <ion-select interface="popover">
+                <ion-option value="Juan">Juan</ion-option>
+                <ion-option value="Pedro">Pedro</ion-option>
+                <ion-option value="Diego">Diego</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>Categoria</ion-label>
+            <ion-select interface="popover">
+                <ion-option value="nes">Servicio</ion-option>
+                <ion-option value="n64">Mantenimiento</ion-option>
+                <ion-option value="ps">Instalación</ion-option>
+                <ion-option value="genesis">Tarea Pendiente</ion-option>
+                <ion-option value="saturn">Sistemas</ion-option>
+                <ion-option value="snes">Soluciónes</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>Prioridad</ion-label>
+            <ion-select interface="popover">
+                <ion-option value="nes">Baja</ion-option>
+                <ion-option value="n64">Media</ion-option>
+                <ion-option value="ps">Alta</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item>
+            <ion-label>Tecnico</ion-label>
+            <ion-select interface="popover">
+                <ion-option value="nes">Servicio</ion-option>
+                <ion-option value="n64">Mantenimiento</ion-option>
+                <ion-option value="ps">Instalación</ion-option>
+                <ion-option value="genesis">Tarea Pendiente</ion-option>
+                <ion-option value="saturn">Sistemas</ion-option>
+                <ion-option value="snes">Soluciónes</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+    <button ion-button block (click)="applyFilter()">
+      Filtrar
+    </button>
+</ion-content>

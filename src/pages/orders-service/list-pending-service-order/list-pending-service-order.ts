@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, MenuController } from 'ionic-angular';
 
+// Modal-Page
+import { FilterOSPendingPage } from '../filters/os-pending/filter-os-pending';
 
 @Component({
   selector: 'page-list-pending-service-order',
@@ -17,4 +19,7 @@ export class ListPendingServiceOrderPage {
 
   }
 
+  showFilter() {
+    this.navCtrl.push(FilterOSPendingPage);
+  }
 }
